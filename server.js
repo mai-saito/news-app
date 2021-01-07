@@ -1,10 +1,9 @@
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('030fbdd2012645b98fc89837a4f05da4');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-
-console.log
+require('dotenv').config();
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI(process.env.API_KEY);
 
 let array = [];
 
@@ -15,6 +14,7 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname + '/index.html');
 });
 
+// Find news by search words and send them back
 app.post('/', (req, res) => {
 	var searchWord = req.body.searchWord;
 	var country = req.body.country;
@@ -29,12 +29,10 @@ app.post('/', (req, res) => {
 	newsapi.v2.topHeadlines({
 		country: country,
 		language: language,
-		// category: 'technology',
 		q: searchWord,
     pageSize: 40
   }).then((news) => {
 		var data = news['articles'];
-		// res.send(array);
 		for (var n in data) {
 			var item = {
 				title: data[n].title,

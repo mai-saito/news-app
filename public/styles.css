@@ -15,8 +15,9 @@ body {
 }
 
 #wrapper {
-	width: 800px;
+	width: 100vw;
 	margin: 0 auto;
+	padding: 20px;
 }
 
 h1 {
@@ -61,21 +62,6 @@ a {
 
 p {
 	font-size: 1.4rem;
-	/* line-height: 1.5rem; */
 	height: 6.5rem;
 	overflow: hidden;
 }
-
-/* .titleUrl { 
-	text-decoration: none;
-} */
-
-
-/* 
-table, tr, th, td {
-	border: 1px solid black;
-}
-
-tr:first-child th {
-	text-align: left;
-} */
